@@ -11,6 +11,9 @@ const nextConfig: NextConfig = withPWA({
   experimental: {
     appDir: true,
   },
+  server: {
+    host: "0.0.0.0",
+  }
 });
 
 export default nextConfig;
