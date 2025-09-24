@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   themeColor: "#16a34a",
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-192.png",
+    icon: "https://images.vexels.com/media/users/3/196662/isolated/preview/cfaa8a7b6e16d1b50914720bee0002d5-linda-vista-lateral-de-dino.png",
+    apple: "https://images.vexels.com/media/users/3/196662/isolated/preview/cfaa8a7b6e16d1b50914720bee0002d5-linda-vista-lateral-de-dino.png",
   },
 };
 
