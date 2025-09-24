@@ -1,6 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import { db } from "../lib/db";
+import { ConfigIcon } from "@/assets/icons/ConfigIcon";
+import { PlusIcon } from "@/assets/icons/PlusIcon";
 
 export default function Home() {
   useEffect(() => {
@@ -42,7 +44,50 @@ export default function Home() {
     };
   }, []);
 
+  const tempAccounts = [
+    { "name": "Alice", "amount": 120.5, "color": "#0D7377" },
+    { "name": "Bob", "amount": -45.2, "color": "#A103FC" },
+    { "name": "Charlie", "amount": 300.75, "color": "#0096C7" },
+    { "name": "Diana", "amount": -1500.33, "color": "#9D0191" },
+    { "name": "Ethan", "amount": 75.1, "color": "#7B2CBF" },
+    { "name": "Fiona", "amount": -220.89, "color": "#B5179E" },
+    { "name": "George", "amount": 500.0, "color": "#7209B7" },
+    { "name": "Hannah", "amount": -90.45, "color": "#3A0CA3" },
+    { "name": "Ivan", "amount": 60.6, "color": "#4361EE" }
+  ]
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"></div>
+    <div className="font-sans p-4 flex flex-col gap-4 items-center">
+      <div className="flex w-full justify-between items-center">
+        <p className="text-lg">List of accounts</p>
+        <div className="border-1 border-gray-700 rounded-xl p-2">
+          <ConfigIcon className="w-7 h-7 text-blue-600" />
+        </div>
+      </div>
+      <div className="grid grid-cols-3 w-full gap-1">
+        {tempAccounts.map((account) => {
+          return (
+            <div key={account.name} className="border-1 border-gray-700 rounded-lg h-13 px-1 py-1.5" style={{ backgroundColor: account.color }}>
+              <p className="text-xs">{account.name}</p>
+              <p className="text-sm">{account.amount.toString()?.startsWith('-') ? '-' : ''}USD ${account.amount.toFixed(2).toString().replace('-', '')}</p>
+            </div>
+          )
+        })}
+        <div key={"addaccount"} className="border-1 border-blue-500 rounded-lg px-0 py-1.5 bg-transparent text-blue-500 h-13 flex items-center justify-center" >
+          <p className="text-base text-center leading-4 px-2">Add account</p>
+          <div className="bg-blue-500 rounded-full p-0.5 mr-1">
+            <PlusIcon className="w-4 h-4 text-black" />
+
+          </div>
+        </div>
+      </div>
+      <div className="w-full flex flex-col gap-1 bg-[#141414] p-4 rounded-lg mt-2">
+        <h1 className="text-xl">Balance:</h1>
+        <p className="text-xl">{tempAccounts.reduce((acc, cur) => acc + cur.amount, 0).toFixed(2).toString().startsWith('-') ? '-' : ''}USD {tempAccounts.reduce((acc, cur) => acc + cur.amount, 0).toFixed(2).toString().replace('-', '')}</p>
+      </div>
+      <div className="absolute bottom-4 right-4 p-4 rounded-full bg-blue-500 text-white text-xl">
+        <PlusIcon className="w-7 h-7" />
+      </div>
+    </div>
   );
 }

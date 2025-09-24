@@ -1,8 +1,10 @@
+import { ConfigIcon } from '@/assets/icons/ConfigIcon'
 import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between items-center p-4 bg-blue-500 w-full'>Home</nav>
+    <nav className='flex justify-between items-center p-4 h-20 bg-[#141414] w-full'><p className='text-xl'>Home</p>
+    </nav>
   ) 
 }
 
