@@ -67,7 +67,7 @@ export default function Home() {
       <div className="grid grid-cols-3 w-full gap-1">
         {tempAccounts.map((account) => {
           return (
-            <div key={account.name} className="border-1 rounded-lg h-13 px-1 py-1.5" style={{ backgroundColor: account.color }}>
+            <div key={account.name} className="rounded-lg h-13 px-1 py-1.5" style={{ backgroundColor: account.color }}>
               <p className="text-xs">{account.name}</p>
               <p className="text-sm">{account.amount.toString()?.startsWith('-') ? '-' : ''}USD ${account.amount.toFixed(2).toString().replace('-', '')}</p>
             </div>
