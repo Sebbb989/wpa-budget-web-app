@@ -45,15 +45,16 @@ export default function Home() {
   }, []);
 
   const tempAccounts = [
-    { "name": "Alice", "amount": 120.5, "color": "#0D7377" },
-    { "name": "Bob", "amount": -45.2, "color": "#A103FC" },
-    { "name": "Charlie", "amount": 300.75, "color": "#0096C7" },
-    { "name": "Diana", "amount": -1500.33, "color": "#9D0191" },
-    { "name": "Ethan", "amount": 75.1, "color": "#7B2CBF" },
-    { "name": "Fiona", "amount": -220.89, "color": "#B5179E" },
-    { "name": "George", "amount": 500.0, "color": "#7209B7" },
-    { "name": "Hannah", "amount": -90.45, "color": "#3A0CA3" },
-    { "name": "Ivan", "amount": 60.6, "color": "#4361EE" }
+    { "name": "Visa", "amount": 120.5, "color": "#0D7377" },
+    { "name": "Personal", "amount": -45.2, "color": "#A103FC" },
+    { "name": "Pagos", "amount": 300.75, "color": "#0096C7" },
+    { "name": "TC - BG", "amount": -720.33, "color": "#9D0191" },
+    { "name": "TC - Deuda general", "amount": 75.1, "color": "#7B2CBF" },
+    { "name": "TC - Paseo", "amount": -220.89, "color": "#B5179E" },
+    { "name": "Ahorros", "amount": 500.0, "color": "#7209B7" },
+    { "name": "Alquiler", "amount": -90.45, "color": "#3A0CA3" },
+    { "name": "Transporte", "amount": 60.6, "color": "#4361EE" },
+    { "name": "Gastos Fijos", "amount": 300.75, "color": "#0096C7" },
   ]
 
   return (
@@ -64,16 +65,16 @@ export default function Home() {
           <ConfigIcon className="w-7 h-7 text-blue-600" />
         </div>
       </div>
-      <div className="grid grid-cols-3 w-full gap-1">
+      <div className="grid grid-cols-3 w-full gap-1 select-none">
         {tempAccounts.map((account) => {
           return (
-            <div key={account.name} className="rounded-lg h-13 px-1 py-1.5" style={{ backgroundColor: account.color }}>
-              <p className="text-xs">{account.name}</p>
+            <div key={account.name} className="rounded-lg h-12 px-1.5 py-1.5" style={{ backgroundColor: account.color }}>
+              <p className="text-xs truncate">{account.name}</p>
               <p className="text-sm">{account.amount.toString()?.startsWith('-') ? '-' : ''}USD ${account.amount.toFixed(2).toString().replace('-', '')}</p>
             </div>
           )
         })}
-        <div key={"addaccount"} className="border-1 border-blue-500 rounded-lg px-0 py-1.5 bg-transparent text-blue-500 h-13 flex items-center justify-center" >
+        <div key={"addaccount"} className="border-1 border-blue-500 rounded-lg px-0 py-1.5 bg-transparent text-blue-500 h-12 flex items-center justify-center" >
           <p className="text-base text-center leading-4 px-2">Add account</p>
           <div className="bg-blue-500 rounded-full p-0.5 mr-1">
             <PlusIcon className="w-4 h-4 text-black" />
@@ -81,7 +82,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col gap-1 bg-[#141414] p-4 rounded-lg mt-2">
+      <div className="w-full flex flex-col gap-1 bg-[#212121] p-4 rounded-lg mt-2">
         <h1 className="text-xl">Balance:</h1>
         <p className="text-xl">{tempAccounts.reduce((acc, cur) => acc + cur.amount, 0).toFixed(2).toString().startsWith('-') ? '-' : ''}USD {tempAccounts.reduce((acc, cur) => acc + cur.amount, 0).toFixed(2).toString().replace('-', '')}</p>
       </div>
