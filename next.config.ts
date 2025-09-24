@@ -11,10 +11,10 @@ const nextConfig: NextConfig = withPWA({
   experimental: {
     appDir: true,
   },
-  // server: {
-  //   port: 80,
-  //   host: "0.0.0.0",
-  // }
+  server: {
+    port: 3001,
+    host: "0.0.0.0",
+  }
 });
 
 export default nextConfig;
